@@ -1,11 +1,18 @@
-import ThemeSwitcher from "./components/theme-switcher";
+import { Route, Routes } from "react-router";
+import Landing from "./pages/landing";
+import Layout from "./pages/layout";
+import RegisterPage from "./pages/register";
+import LoginPage from "./pages/login";
 
 const App = () => {
   return (
-    <div className="w-full flex items-center justify-between p-3">
-      <p className="text-xl">App</p>
-      <ThemeSwitcher />
-    </div>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Landing />} />
+      </Route>
+      <Route path="/register" element={<RegisterPage />} />
+      <Route path="/login" element={<LoginPage />} />
+    </Routes>
   );
 };
 
